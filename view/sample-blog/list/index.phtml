@@ -1,0 +1,46 @@
+<?php
+// module/Blog/view/album/album/index.phtml:
+$title = 'My Sample Blog';
+$this->headTitle($title);
+?>
+
+    <div class="container">
+        <h1><?php echo $this->escapeHtml($title); ?></h1>
+        <p>
+            <a href="<?php echo $this->url('sampleblog', array('action' => 'add')); ?>">Add new album</a>
+        </p>
+
+        <?php foreach ($this->posts as $post): ?>
+            <article>
+                <h1 id="post<?= $post->getId() ?>"><?= $post->getTitle() ?></h1>
+                <p>
+                    <?= $post->getText() ?>
+                </p>
+                <a href="<?php echo $this->url('sampleblog',
+                    array('action' => 'edit', 'id' => $post->getId())); ?>">Edit</a>
+                <a href="<?php echo $this->url('sampleblog',
+                    array('action' => 'delete', 'id' => $post->getId())); ?>">Delete</a>
+                </td>
+            </article>
+        <?php endforeach ?>
+        <article>
+            <h3>What is a Service?</h3>
+
+            <p>A Service is an object that executes complex application logic. It’s the part of the application that
+                wires
+                all difficult stuff together and gives you easy to understand results.</p>
+            <p> For what we’re trying to accomplish with our Blog-Module this means that we want to have a Service that
+                will
+                give us the data that we want. The Service will get it’s data from some source and when writing the
+                Service
+                we don’t really care about what the source actually is. The Service will be written against an Interface
+                that we define and that future Data-Providers have to implement.</p>
+
+        </article>
+    </div>
+
+<?php
+
+/**@todo improve paginator. */
+
+//echo $this->paginationControl($this->posts, 'Sliding', 'paginator', array('route' => 'album', 'page' => $page, 'setdata' => $setdata)); ?>
