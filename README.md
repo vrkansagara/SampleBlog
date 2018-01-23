@@ -1,2 +1,8 @@
+Example using Service,Factory,DBMapper
+=====================================
 
-posts
+- [x] Mysql / Sqlite Operation
+- [x] Insert
+- [x] Update
+- [x] Delete
+- [x] List
